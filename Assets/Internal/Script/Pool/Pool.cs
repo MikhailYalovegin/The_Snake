@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -38,7 +39,7 @@ public class Pool : MonoBehaviour
 
     private PoolObject CreateElement(bool isActiveByDefalut = false)
     {
-        var createObject = Instantiate(_prefab);
+        var createObject = Instantiate(_prefab, transform);
         createObject.gameObject.SetActive(isActiveByDefalut);
 
         _pool.Add(createObject);
@@ -97,24 +98,10 @@ public class Pool : MonoBehaviour
         return element;
     }
 
-    //public PoolObject GetFreeElement(Vector3 position, Quaternion rotation)
-    //{
-    //    var element = GetFreeElement(position);
-    //    element.transform.rotation = rotation;
-    //    return element;
-    //}
-
-    //public PoolObject GetFreeElement(Vector3 position, Quaternion rotation, Color color)
-    //{
-    //    var element = GetFreeElement(position, rotation);
-    //    element.GetComponent<SpriteRenderer>().material.color = color;
-    //    return element;
-    //}
-
-    //public PoolObject GetFreeElement(Vector3 position, Quaternion rotation, int generation)
-    //{
-    //    var element = GetFreeElement(position, rotation);
-    //    //element.GetComponent<Asteroid>().ScaleAsteroid(generation);
-    //    return element;
-    //}
+    public PoolObject GetFreeElement(Vector3 position, Color color)
+    {
+        var element = GetFreeElement(position);
+        element.GetComponentInChildren<Renderer>().material.color = color;
+        return element;
+    }
 }

@@ -10,7 +10,8 @@ TagManager:
   - Hindrance
   - Food
   - Crystal
-  - NewColorWall
+  - ColoredWall
+  - PlayingField
   layers:
   - Default
   - TransparentFX
