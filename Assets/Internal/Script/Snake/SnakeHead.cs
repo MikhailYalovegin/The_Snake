@@ -90,7 +90,6 @@ public class SnakeHead : MonoBehaviour
         {
             if (_other.tag == "Hindrance" || _other.tag == "Crystal")
             {
-                Debug.Log("2");
                 _numberCrystal++;
                 _other.transform.parent.GetComponent<PoolObject>().ReturnToPool();
             }
